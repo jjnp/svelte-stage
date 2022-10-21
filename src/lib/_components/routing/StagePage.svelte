@@ -5,7 +5,7 @@
 		const stories = import.meta.glob('/src/**/*.stage.svelte')
 
 		const storyKey = Object.keys(stories).find((story) => {
-			const pathFromStory = story.replace('.stage.svelte', '').replace('/src', '/docs')
+			const pathFromStory = story.replace('.stage.svelte', '').replace('/src', '/stage')
 
 			return pathFromStory === $page.url.pathname
 		})

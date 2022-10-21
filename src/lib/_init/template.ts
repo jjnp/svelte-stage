@@ -6,15 +6,15 @@ export const load = loadDocsData
 
 export const layoutTemplate = `
 <script lang="ts">
-    import DocsLayout from 'svelte-stage'
+    import { StageLayout } from 'svelte-stage'
 	import type { LayoutData } from './$types'
 
 	export let data: LayoutData
 </script>
 
-<DocsLayout {data}>
+<StageLayout {data}>
     <slot/>
-</DocsLayout>
+</StageLayout>
 `
 
 export const pageTemplate = `

@@ -4,13 +4,13 @@ export const loadDocsData = () => {
     const storyImports = import.meta.glob('/src/**/*.stage.svelte')
 
     const storiesMenuData = [
-        ['/docs', 'Components Overview'],
+        ['/stage', 'Components Overview'],
         ...Object.keys(storyImports)
             .map((module) => {
                 const name = module
                     .substring(module.lastIndexOf('/') + 1, module.length)
                     .replace('.story.svelte', '')
-                const href = module.replace('/src', '/docs').replace('.stage.svelte', '')
+                const href = module.replace('/src', '/stage').replace('.stage.svelte', '')
     
                 return [href, name]
             })
