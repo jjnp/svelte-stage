@@ -2,10 +2,10 @@
 	import { page } from '$app/stores'
 
 	const loadComponent = async () => {
-		const stories = import.meta.glob('/src/**/*.story.svelte')
+		const stories = import.meta.glob('/src/**/*.stage.svelte')
 
 		const storyKey = Object.keys(stories).find((story) => {
-			const pathFromStory = story.replace('.story.svelte', '').replace('/src', '/docs')
+			const pathFromStory = story.replace('.stage.svelte', '').replace('/src', '/docs')
 
 			return pathFromStory === $page.url.pathname
 		})

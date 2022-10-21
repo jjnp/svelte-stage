@@ -1,7 +1,7 @@
 import type { TreeNode } from "./types"
 
 export const loadDocsData = () => {
-    const storyImports = import.meta.glob('/src/**/*.story.svelte')
+    const storyImports = import.meta.glob('/src/**/*.stage.svelte')
 
     const storiesMenuData = [
         ['/docs', 'Components Overview'],
@@ -10,7 +10,7 @@ export const loadDocsData = () => {
                 const name = module
                     .substring(module.lastIndexOf('/') + 1, module.length)
                     .replace('.story.svelte', '')
-                const href = module.replace('/src', '/docs').replace('.story.svelte', '')
+                const href = module.replace('/src', '/docs').replace('.stage.svelte', '')
     
                 return [href, name]
             })
