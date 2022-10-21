@@ -1,38 +1,33 @@
-# create-svelte
+# svelte-stage
+A minimalist storybook like library for prototyping, developing and viewing your svelte components.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
+## Getting started
+Getting started couldn't be more simple. There are only two steps:
+Install the dependency:
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
+npm i -D svelte-stage
+```
+and then run the init script to create the route where your stages (~= stories) will be accessible:
+```bash
+npm exec svelte-stage-init
+```
+And that's it! From there on you can create your components and they will show up.
+## Usage
+In svelte-stage, a *Stage* is any svelte component with the filename matching `*.stage.svelte`.
+While that means you can create anything as a stage component, depending on your needs, its recommended to use the built-in stage component as a wrapper as it adds implicit documentation.
 
-# create a new project in my-app
-npm create svelte@latest my-app
+To create your first stage create a component named `<your component name>.stage.svelte` *anywhere* you like.
+In that component add the wrapper and the component you want to document like so:
+
+```svelte
+<script lang="ts>
+    import { Stage } from 'svelte-stage'
+    import MyCustomComponent from 'src/components/MyCustomComponent.svelte'
+</script>
+
+<Stage component="MyCustomComponent">
+    <MyCustomComponent/>
+</Stage>
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+If you then navigate to `<devserver-url>/stage` you will see the overview where you can click on that stage and see it displayed.
