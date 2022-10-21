@@ -1,15 +1,14 @@
 export const layoutEndpointTemplate = `
-import { loadDocsData } from 'svelte-stage'
+import { loadStageData } from 'svelte-stage'
 
-export const load = loadDocsData
+export const load = loadStageData
 `
 
 export const layoutTemplate = `
 <script lang="ts">
-    import { StageLayout } from 'svelte-stage'
-	import type { LayoutData } from './$types'
+	import { StageLayout, type loadStageData } from 'svelte-stage'
 
-	export let data: LayoutData
+	export let data: ReturnType<typeof loadStageData>
 </script>
 
 <StageLayout {data}>

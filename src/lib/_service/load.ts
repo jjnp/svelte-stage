@@ -1,6 +1,6 @@
 import type { TreeNode } from "./types"
 
-export const loadDocsData = () => {
+export const loadStageData = () => {
     const storyImports = import.meta.glob('/src/**/*.stage.svelte')
 
     const storiesMenuData = [
