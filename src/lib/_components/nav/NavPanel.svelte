@@ -49,7 +49,8 @@
 	.props-panel {
 		height: 20vh;
 		padding: 16px;
-		background-color: var(--c-secondary-dark-blue-80);
+		background-color: var(--c-accent-blue);
+		border-top-left-radius: 8px;
 		color: white;
 		overflow-y: auto;
 	}
@@ -69,12 +70,9 @@
 		flex-basis: 50%;
 	}
 
-	h2 {
-		// @include font-copy-l;
-	}
-
 	h3 {
-		// @include font-copy-m;
+		@include title-m;
+		color: var(--c-white);
 	}
 
 	pre {

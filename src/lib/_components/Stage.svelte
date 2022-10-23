@@ -4,38 +4,40 @@
 	export let component: string
 	export let props: Record<string, unknown> | undefined = undefined
 	export let events: Record<string, unknown> | undefined = undefined
+	export let hideBackground = false
 
 	// export let background: SthemerScheme = 'light'
 
 	const show = () => showDetails({ component, props, events })
 </script>
 
-<!-- <Sthemer strategy={background}> -->
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div class="story" on:click={show}>
-		<span class="wrapper">
-			<span class="click-stopper" on:click|stopPropagation>
-				<slot />
-			</span>
+<div class="story" on:click={show} class:card-background={!hideBackground}>
+	<span class="wrapper">
+		<span class="click-stopper" on:click|stopPropagation>
+			<slot />
 		</span>
-	</div>
-<!-- </Sthemer> -->
+	</span>
+</div>
 
 <style lang="scss">
 	.story {
 		position: relative;
 		display: flex;
 
-		// @include on-light {
-		// 	@include bg-light;
-		// }
-
-		// @include on-dark {
-		// 	@include bg-dark;
-		// }
-
 		+ :global(.story) {
 			border-block-start: 1px solid var(--c-secondary-dark-blue-20);
+		}
+
+		&.card-background {
+			background-color: var(--c-white);
+			padding: 12px;
+			border-radius: 8px;
+
+			box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
+			-webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
+			-moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
+			margin-block-start: 12px;
+			margin-block-end: 12px;
 		}
 	}
 

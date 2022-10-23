@@ -3,6 +3,6 @@
 	import Button from "./Button.svelte";
 
 </script>
-<Stage component="Button">
+<Stage component="Button" props={{text: 'button text from stage'}}>
     <Button text='button text from stage'/>
 </Stage>

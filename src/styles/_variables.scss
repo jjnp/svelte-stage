@@ -1,6 +1,29 @@
+@mixin create-color-scale($name, $red, $green, $blue, $with-0: 0, $with-opaque: 0) {
+	--__c-#{$name}-base: #{$red, $green, $blue};
+	--c-#{$name}: rgb(var(--__c-#{$name}-base));
+	--c-#{$name}-80: rgb(var(--__c-#{$name}-base), 0.8);
+	--c-#{$name}-70: rgb(var(--__c-#{$name}-base), 0.7);
+	--c-#{$name}-60: rgb(var(--__c-#{$name}-base), 0.6);
+	--c-#{$name}-40: rgb(var(--__c-#{$name}-base), 0.4);
+	--c-#{$name}-20: rgb(var(--__c-#{$name}-base), 0.2);
+	--c-#{$name}-10: rgb(var(--__c-#{$name}-base), 0.1);
+	@if $with-0 == 1 {
+		--c-#{$name}-0: rgb(var(--__c-#{$name}-base), 0);
+	}
+	@if $with-opaque == 1 {
+		--c-#{$name}-80-opaque: #{rgba-to-rgb($red, $green, $blue, 0.8)};
+		--c-#{$name}-70-opaque: #{rgba-to-rgb($red, $green, $blue, 0.7)};
+		--c-#{$name}-60-opaque: #{rgba-to-rgb($red, $green, $blue, 0.6)};
+		--c-#{$name}-40-opaque: #{rgba-to-rgb($red, $green, $blue, 0.4)};
+		--c-#{$name}-20-opaque: #{rgba-to-rgb($red, $green, $blue, 0.2)};
+		--c-#{$name}-10-opaque: #{rgba-to-rgb($red, $green, $blue, 0.1)};
+	}
+}
+
 :root {
-    --c-white: white;
-    --c-white-10: rgb(var(--c-white), 0.1);
-    --c-dark-blue: rgb(25 50 80);
-    --c-dark-blue-20: rgb(var(--c-dark-blue), 0.2);
+    @include create-color-scale('white', 255, 255, 255);
+    @include create-color-scale('accent-red', 162, 73, 54);
+    @include create-color-scale('accent-blue', 0, 71, 119);
+    @include create-color-scale('accent-green', 62, 86, 65);
+    --c-text-dark: rgb(34, 34, 34);
 }

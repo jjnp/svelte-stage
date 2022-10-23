@@ -1,0 +1,26 @@
+@import './_variables';
+
+@mixin font-base {
+    font-family: Helvetica, sans-serif;
+    color: var(--c-text-dark);
+}
+
+@mixin copy-m {
+    @include font-base();
+    font-size: 14px;
+}
+
+@mixin copy-l {
+    @include font-base();
+    font-size: 18px;
+}
+
+@mixin title-m {
+    @include font-base();
+    font-size: 24px;
+}
+
+@mixin title-l {
+    @include font-base();
+    font-size: 36px;
+}
