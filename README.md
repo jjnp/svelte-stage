@@ -2,7 +2,7 @@
 A minimalist storybook like library for prototyping, developing and viewing your svelte components.
 
 ## Getting started
-Getting started couldn't be more simple. There are only two steps:
+Getting started couldn't be more simple. There are only three steps:
 Install the dependency:
 ```bash
 npm i -D svelte-stage
@@ -11,6 +11,17 @@ and then run the init script to create the route where your stages (~= stories) 
 ```bash
 npm exec svelte-stage-init
 ```
+Finally, due to some recent changes in sveltekit and vite, you need to exclude the library from vite dependency optimization. Just add it to your `vite.config.js` like so:
+```javascript
+const config = {
+	plugins: [sveltekit()],
+	optimizeDeps: {
+		exclude: ['svelte-stage']
+	}
+};
+```
+
+
 And that's it! From there on you can create your components and they will show up.
 ## Usage
 In svelte-stage, a *Stage* is any svelte component with the filename matching `*.stage.svelte`.

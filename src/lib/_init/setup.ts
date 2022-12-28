@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'fs'
 import readline from 'readline'
-import { pageTemplate, layoutTemplate, layoutEndpointTemplate } from './template.js'
+import { getLayoutTemplate, getPageTemplate, getLayoutEndpointTemplate } from './template.js'
 
 /**
  * Basic tasks:
@@ -70,9 +70,9 @@ const createDirs = async () => {
 
 const createFiles = async () => {
     console.log('Writing route files...')
-    fs.writeFileSync('src/routes/stage/+layout.svelte', layoutTemplate)
-    fs.writeFileSync('src/routes/stage/+layout.ts', layoutEndpointTemplate)
-    fs.writeFileSync('src/routes/stage/[...stage]/+page.svelte', pageTemplate)
+    fs.writeFileSync('src/routes/stage/+layout.svelte', getLayoutTemplate())
+    fs.writeFileSync('src/routes/stage/+layout.ts', getLayoutEndpointTemplate())
+    fs.writeFileSync('src/routes/stage/[...stage]/+page.svelte', getPageTemplate())
 }
 
 const setup = async () => {
