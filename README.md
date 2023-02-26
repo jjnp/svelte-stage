@@ -31,7 +31,7 @@ To create your first stage create a component named `<your component name>.stage
 In that component add the wrapper and the component you want to document like so:
 
 ```svelte
-<script lang="ts>
+<script lang="ts">
     import { Stage } from 'svelte-stage'
     import MyCustomComponent from 'src/components/MyCustomComponent.svelte'
 </script>
